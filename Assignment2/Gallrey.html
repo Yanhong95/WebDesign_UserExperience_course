@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>JavaJam Coffee House</title>
+	<link href="coffee.css" rel="stylesheet">
+	<style type="text/css">
+
+#gallery ul { 
+	width: 300px; 
+    list-style-type: none; 
+}
+#gallery li { 
+	display: inline; 
+    float: center; 
+    padding: 10px; 
+}
+#gallery img { 
+	border-style: none; 
+}
+#gallery a { 
+	text-decoration: none; 
+    color: #333; 
+    font-style: italic; 
+}
+#gallery span { 
+	display: none; 
+}  
+#gallery a:hover span { 
+	display: block; 
+    position: absolute;
+    top: 10px; 
+    left: 300px; 
+    text-align: center; }
+#gallery { 
+	position: relative;
+	height: 450px; 
+}
+	</style>
+
+</head>
+<body>
+	<div id="wrapper"> 
+	<header>
+		<h1>JavaJam Coffee House</h1>
+	</header>
+	<nav>
+		<ul>
+			<li><a href="Home.html">Home</a>
+                <ul>
+                	<li><a href="HotBrews.html">Hot Brews</a></li>
+                	<li><a href="ColdBrews.html">Cold Brews</a></li>
+                </ul>
+			</li>
+			<li><a href="Menu.html">Menu</a></li>
+			<li><a href="Jobs.html">Jobs</a></li>
+			<li><a href="Gallrey.html">Gallrey</a></li>
+			<li><a href="Feedback.html">Feedback</a></li>
+		</ul>
+	</nav>
+	   <main>
+	   	<fieldset>
+	   	<legend>Our products:</legend>	
+        <div id="gallery">
+            <ul>
+                <li><a href="images/Mocha.jpg"><img src="images/Mochathumb.jpg" 
+                width="100"   height="100" alt="Mocha">
+                <span><img src="images/Mocha.jpg" width="250" height="350"
+                alt="Mocha"><br>Mocha</span></a>
+                </li>
+                <li><a href="images/Latte.jpg"><img src="images/Lattethumb.jpg" 
+                width="100"   height="100" alt="California Beach">
+                <span><img src="images/Latte.jpg" width="250" height="350"
+                alt="Latte"><br>Latte</span></a>
+                </li>
+                <li><a href="images/FlatWhite.jpg"><img src="images/FlatWhitethumb.jpg" 
+                width="100"   height="100" alt="FlatWhite">
+                <span><img src="images/FlatWhite.jpg" width="250" height="350"
+                alt="FlatWhite"><br>FlatWhite</span></a>
+                </li>
+                <li><a href="images/Americano.jpg"><img src="images/Americanothumb.jpg" 
+                width="100"   height="100" alt="Pacific Sunset">
+                <span><img src="images/Americano.jpg" width="250" height="350"
+                alt="Americano"><br>Americano</span></a>
+                </li>
+               
+            </ul>
+	    </fieldset>
+	   </main>
+	<footer>
+		<a>Copyright &copy; JavaJam Coffee House</a><br>
+		<a href="mailto:yanhongmain@gmail.com">yanhongmain@gmail.com</a>
+	</footer>
+	<div> 
+</body>
+</html>

@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Mean shell</title>
+	<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+<body>
+	<div>
+		<form>
+			<table>
+			<tr>
+		  	<td>Enter text and hit enter:</td> 
+		  	<td><input type="text" id="mess" name="mes" /></td>
+		  	<td><input type="submit" id="buttonClick" value="Submit"/></td>
+		  	</tr>
+		  	<tr>
+			<td>The text of your choice:</td>
+			<td><input type="text" id="showText" name="text"/></td>
+			<td><button type="button" id="buttonDelete">Delete</button>(Please select the message that you want to delete first.)</td>
+			</tr>
+			<tr>
+			<td>Enter the modified data:</td>
+			<td><input type="text" id="update" name="update" /></td>
+			<td><button type="button" id="buttonUpdate">Update</button>(Please select the message that you want to update first.)</td>
+			</tr>
+			<tr>
+			<td>Enter the messageID:</td>
+			<td><input type="text" id="findByID" name="findByID" /></td>
+			<td><button type="button" id="buttonFindByID">Find by messageID</button></td>
+			</tr>
+			<tr>
+			<td>The message is:</td>
+			<td><input type="text" id="message" name="message" /></td>
+			</tr>
+			<tr>
+			<td>Enter the message:</td>
+			<td><input type="text" id="findByMassage" name="findByMassage" /></td>
+			<td><button type="button" id="buttonFindByMassage">Find by massage</button></td>
+			</tr>
+			<tr>
+			<td>The messageID is:</td>
+			<td><input type="text" id="ID" name="ID" /></td>
+			</tr>
+			</table>
+		</form>
+		<h1>Data is displayed below</h1>
+		<h3>Message&MessageID</h3>
+		<h4 id="text"></h4>
+	</div>
+	<script type="text/javascript">
+	/*	$(document).ready(function(){
+			populateText();	
+			$("#buttonClick").click(function(e){
+				e.preventDefault();
+				//alert("Submit button clicked");
+				window.history.pushState("object or string", "Title", 'http://localhost:8080/api/insert?mes='+ document.getElementsByName("mes")[0].value);
+				//insertText();
+				populateText();
+			});		
+			
+		});
+		function populateText(){
+			// jQuery AJAX call for JSON
+			$.getJSON( '/api/show', function( data ) {
+				var textMessage = '';
+				console.log("Data is : ",data);
+				$.each(data, function(){
+					textMessage += this.message + '<br><br>';
+				})
+				$('#text').html(textMessage);
+			});
+		}*/
+
+		// function populateText() {
+		// 	$.get('http://localhost:8080/api/show', function(data, status){
+		// 		$.each(data, function(i, item) {
+		// 			console.log(i+":"+data[i].message);
+		// 			dataID = i ; 
+		// 			console.log(dataID);
+		// 			$("h4").append('<input type="checkbox" name="item"><i style="font-style:normal">' + data[i].message +  
+		// 				'</i><i style="display:none">' + data[i].messageID +  '</i><br/>');
+		// 		})
+		// 	});
+		// }
+
+
+		$(function(){
+			var dataID;
+				$.get('http://localhost:8080/api/show', function(data, status){
+					$.each(data, function(i, item) {
+						console.log(i+":"+data[i].message);
+						dataID = i ; 
+						console.log(dataID);
+						$("h4").append('<input type="checkbox" name="item"><i style="font-style:normal">' + data[i].message + 
+							'</i><i style="font-style:normal">&amp;</i><i style="font-style:normal">' + data[i].messageID +  '</i><br/>');
+					})
+				});
+
+                $('#buttonClick').click(function(e){
+                    e.preventDefault();
+                    console.log('Submit button is clicked');
+                    var	mes = $('#mess').val();
+					// var data = {};
+					// data.message = mes;
+					// console.log(data.message);	
+					if (dataID == null) {
+						dataID = 0;
+					}else{
+						dataID += 1;
+					}
+					var data = ({ messageID : dataID ,message : mes});
+					console.log(dataID);
+					console.log(mes);	
+               		if (mes == '') {
+               			alert("Please enter some message");
+               			return false;
+               		}
+               		else{
+               			$.ajax({
+						type: 'POST',
+						data: JSON.stringify(data),
+				        contentType: 'application/json',
+                        url: 'http://localhost:8080/api/insert',						
+                        success: function(result) {
+                            console.log('success');
+                        }  
+                    });
+                    $('#mess').val('');
+				    }
+                   // getLastElement();
+                   $.get('http://localhost:8080/api/show', function(data, status){
+						//console.log("data is hereee  " + data[data.length - 1].message);
+			        	$("h4").append('<input type="checkbox" name="item"><i style="font-style:normal">' +
+			        	data[data.length - 1].message  +'</i><i style="font-style:normal">&amp;</i><i style="font-style:normal">' + data[data.length - 1].messageID +  '</i><br/>');
+			        });
+                });	
+
+                $(' #text').on('click','input[type=checkbox]',function(){
+					var checkval = $(this).next().text()
+					$('#showText').val(checkval);
+					//checkNum = $(this).next().next().text();
+					//console.log(checkNum);
+				})
+
+
+                $('#buttonDelete').click(function(){
+               		console.log('Delete button is clicked');
+					var checkval = $('input[type=checkbox]:checked').next().text()
+					var checkNum = $('input[type=checkbox]:checked').next().next().next().text()
+					console.log(checkval);
+					console.log(checkNum);
+					var  data= ({ messageID : checkNum ,message : checkval});				
+			  		if(checkval == ''){
+             			alert("please select the item first");
+                			return false;
+                		}else{
+			                $('input[type=checkbox]:checked').next().remove();
+			                $('input[type=checkbox]:checked').next().remove();
+						  	$('input[type=checkbox]:checked').next().remove();
+						  	$('input[type=checkbox]:checked').next().remove();
+						  	$('input[type=checkbox]:checked').remove();
+						  	$('#showText').val('');
+						  	$.ajax({
+						  	type:'POST',
+						  	data:JSON.stringify(data),
+							contentType: 'application/json',
+						  	url: 'http://localhost:8080/api/delete',						
+	                        success: function(result) {
+	                        	console.log('Delete success');
+						  	}
+						    });
+                		}
+                	});
+
+                $('#buttonUpdate').click(function(){
+                	console.log('Update button is clicked');
+                	var editValue = $('#update').val();
+                	var checkval = $('input[type=checkbox]:checked').next().text();
+					var checkNum = $('input[type=checkbox]:checked').next().next().next().text()
+                	var data= ({ messageID : checkNum ,message : editValue});
+                	$('input[type=checkbox]:checked').next().text(editValue);
+                	if (checkval == '') {
+                		alert("please slelect the item first");
+                		return false;
+                	}else{
+                		$.ajax({
+					  	type:'POST',
+					  	data:JSON.stringify(data),
+						contentType: 'application/json',
+					  	url: 'http://localhost:8080/api/update',						
+	                    success: function(result) {
+	                        console.log(' Update success');
+						}
+					    });
+					    $('#update').val('');
+					    $('#showText').val('');
+                	}
+                });
+ 
+                $('#buttonFindByID').click(function(){
+                	console.log('Find button is clicked');
+                	var findID = $('#findByID').val();
+                	var data =({messageID : findID});
+                	if (findID == '') {
+                		alert("please enter the ID first");
+                		return false;
+                	}else{
+                		$.ajax({
+					  	type:'POST',
+					  	data: JSON.stringify(data),
+						contentType: 'application/json',
+					  	url: 'http://localhost:8080/api/findByID',						
+	                    success: function(result) {
+	                        console.log('success');
+	                        console.log(result);
+	                        $('#message').val(result.message)
+						}
+					    });
+                	}
+                });
+
+                 $('#buttonFindByMassage').click(function(){
+                	console.log('Find button is clicked');
+                	var findMassage = $('#findByMassage').val();
+                	var data =({message : findMassage});
+                	if (findMassage == '') {
+                		alert("please enter the message first");
+                		return false;
+                	}else{
+                		$.ajax({
+					  	type:'POST',
+					  	data: JSON.stringify(data),
+						contentType: 'application/json',
+					  	url: 'http://localhost:8080/api/findByMassage',						
+	                    success: function(result) {
+	                        console.log('success');
+	                        console.log(result);
+	                        $('#ID').val(result.messageID)
+						}
+					    });
+                	}
+                });
+
+
+
+
+
+
+
+
+
+
+			});
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	</script>
+</body>
+</html>

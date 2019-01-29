@@ -1,0 +1,125 @@
+.row{
+	height: 710px;
+	width: 1455px;
+	margin-right: 0px;
+}
+#v-pills-BENZ-tab{
+	background: #c4eada;
+	border-Radius: 0px;
+}
+#v-pills-BMW-tab{
+	background: #fcf3ca;
+	border-Radius: 0px;
+}
+#v-pills-TESLA-tab{
+	background: #E82934;
+	border-Radius: 0px;
+}
+#v-pills-cadillac-tab{
+	background: #ffb480;
+	border-Radius: 0px;
+}
+#v-pills-volkswagen-tab{
+	background: #75c2f6;
+	border-Radius: 0px;
+}
+.model{
+	color: #ffffff;
+	height: 142px;
+}
+#leftsideBar{
+	padding-right: 0px;
+	border: 15px;
+}
+#rightsideBar{
+	padding: 0px;
+	border: 15px;
+}
+#v-pills-BENZ{
+	background: #c4eada;
+	height: 710px;
+}
+#v-pills-BMW{
+	background: #fcf3ca;
+	height: 710px;
+}
+#v-pills-volkswagen{
+	background: #75c2f6;
+	height: 710px;
+}
+#v-pills-cadillac{
+	background: #ffb480;
+	height: 710px;
+}
+#v-pills-TESLA{
+	background: #E82934;
+	height: 710px;
+}
+
+#INFO{
+	padding: 40px;
+}
+.heading-wrapper{
+	margin: 15px;
+
+}
+.heading-wrapper h2{
+	text-align: center;
+}
+
+.heading-wrapper .hr{
+	background: #ffffff;
+	width: 60%
+}
+.sub-heading{
+	padding-bottom: 30px;
+}
+.card{
+	display: inline;
+	float: left;
+	margin:18px;
+	max-width: 300px;
+}
+.card-text {
+	margin-top: 0px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

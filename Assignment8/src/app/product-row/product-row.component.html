@@ -1,0 +1,13 @@
+<div class="media-body">
+   <product-image calss="img-responsive" [product]="product"></product-image>
+</div>
+<div class="media-body text-xl-center ">
+   <h3>{{ product.name }}</h3>
+   <h5><small><i>SKU #{{ product.sku }}</i></small></h5>
+   <h6><product-department [product]="product"></product-department></h6>
+</div>
+<div class="media-body text-xl-center">
+   <image-button [product]="product" ></image-button>
+   <h2 class="float-md-right"><price-display [price]="product.price"></price-display></h2>
+</div>
+

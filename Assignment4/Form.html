@@ -1,0 +1,178 @@
+<!-- Please do all the validation on the form when a submit button is clicked using JQuery. -->
+<!doctype html>
+<html lang="en">
+ <head>
+  <title>Feedback</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+  <style>
+    label {	float: left;
+			width: 150px;}
+      #container{
+          width: 700px;
+          margin: auto;
+          background-color: beige;
+      } 
+      main{
+          padding: 50px;
+      }
+  </style>
+ </head>
+ <body>
+ <div id="container">
+	 
+	 <main>
+	 <h2>Feeback</h2>
+	 <h3>Love something? Hate something? Let us know!</h3>
+		 Note : Fields marked with an asterisk(*) are mandatory
+		 <br><br>
+		 <form method="post" novalidate>
+			<label>Title*:</label>
+			<input type="radio" name="title" id="miss" value="miss" required="required"/>Miss
+			<input type="radio" name="title" id="mr" value="mr" required="required"/>Mr.
+			<input type="radio" name="title" id="mrs" value="mrs" required="required"/>Mrs.
+			<br><br>
+			<label for="firstName">First Name*:</label>
+			<input type="text" name="firstName" id="firstName" placeholder="First Name" />	
+			<br>
+			
+			<label for="lastName">Last Name*:</label>
+			<input type="text" name="lastName" id="lastName" placeholder="Last Name" />
+			<br>
+			
+			<label for="emailId">Email Id*:</label>
+			<input type="text" name="emailId" id="emailId" placeholder="yourname@domain.com" />
+			<br>
+
+			<label for="phoneNumber">Phone Number*:</label>
+			<input type="text" name="phoneNumber" id="phoneNumber" placeholder="xxx-xxx-xxxx" />
+			<br>
+			
+            <label for="zipcode">ZipCode*:</label>
+			<input type="text" name="zipcode" id="zipcode" placeholder="xxxxx" />
+			<br>
+             
+            <label for="zipcode">How did you hear*:</label>
+			<input type='checkbox' name="source" value="facebook" /> Facebook
+            <input type='checkbox' name="source" value="google" /> Google
+            <input type='checkbox' name="source" value="yelp" /> Yelp 
+			<br><br> 
+             
+			<label for="comments">Comments*:</label>
+			<textarea name="text" id="comments" placeholder="Your comments" rows="5" cols="25"></textarea>
+			<br><br>
+
+			<input type="Submit" id="submit">
+			<input type="Reset"  id="reset">
+			<br><br>
+		 </form>
+	 </main>
+ </div>
+ <script type="text/javascript">
+
+ 	$('#firstName').after('<br><div style="display:none;color:red"; id ="fName">Invalid input for your first name, Please re-fill.</div>');
+ 	$('#lastName').after('<br><div style="display:none;color:red"; id ="lName">Invalid input for your last name, Please re-fill.</div>');
+ 	$('#emailId').after('<br><div style="display:none;color:red"; id ="email">Invalid input for your email, Please re-fill.</div>');
+ 	$('#phoneNumber').after('<br><div style="display:none;color:red"; id ="phone">Invalid input for your phoneNumber, Please re-fill.</div>');
+ 	$('#zipcode').after('<br><div style="display:none;color:red"; id ="zip">Invalid input for your zipcode, Please re-fill.</div>');
+    
+
+    $('#firstName').change(function(e){
+    var v = e.target.value;
+    console.log(v);
+    var firstName =/^[a-zA-Z]+$/;
+    if(!firstName.test(v)){
+    	$('#firstName').attr('style','border:2px solid red')
+    	$('#fName').attr('style','display:block;color:red')		
+        $('#firstName').val('');
+    	return;
+        }else{
+        $('#firstName').removeAttr('style');
+        $('#fName').attr('style','display:none')
+        }
+    })
+
+    $('#lastName').change(function(e){
+    var v = e.target.value;
+    console.log(v);
+    var lastName =/^[a-zA-Z]+$/;
+    if(!lastName.test(v)){
+    	$('#lastName').attr('style','border:2px solid red')	
+    	$('#lName').attr('style','display:block;color:red')			
+        $('#lastName').val('');
+    	return;
+        }else{
+        $('#lastName').removeAttr('style');
+        $('#lName').attr('style','display:none')
+        }
+    })
+
+    $('#emailId').change(function(e){
+    var v = e.target.value;
+    console.log(v);
+    var email = /([\w\.]+)@([\w\.]+)\.(\w+)/;
+    if (!email.test(v)) {
+        $('#emailId').attr('style','border:2px solid red')	
+        $('#email').attr('style','display:block;color:red')			
+        $('#emailId').val('');
+    	return;
+        }else{
+        $('#emailId').removeAttr('style');
+        $('#email').attr('style','display:none')
+        }
+     })
+
+
+    $('#phoneNumber').change(function(e){
+    var v = e.target.value;
+    console.log(v);
+    var phoneNumber = /\d{3}-?\d{3}-\d{4}$/;
+    if(!phoneNumber.test(v)){
+        $('#phoneNumber').attr('style','border:2px solid red')	
+        $('#phone').attr('style','display:block;color:red')		
+        $('#phoneNumber').val('');
+    	return;
+        }else{
+        $('#phoneNumber').removeAttr('style');
+        $('#phone').attr('style','display:none')
+        }
+    })
+
+
+    $('#zipcode').change(function(e){
+    var v = e.target.value;
+    console.log(v);
+    var zipcode = /^\d{5}$/;
+    if(!zipcode.test(v)){
+    	$('#zipcode').attr('style','border:2px solid red')
+    	$('#zip').attr('style','display:block;color:red')			
+        $('#zipcode').val('');
+    	return;
+        }else{
+        $('#zipcode').removeAttr('style');
+        $('#zip').attr('style','display:none')
+        }
+    })
+
+    $('#submit').click(function(){
+  	var select1 =$('input:radio[name="title"]:checked').val();
+  	var select2 =$('input:checkbox[name="source"]:checked').val();
+    if(select1 == null){
+    	alert('Please select the title.');
+    	return false;
+    }else if($('#firstName').val()==''||$('#lastName').val()==''||$('#emailId').val()==''||$('#phoneNumber').val()==''||
+    	$('#zipcode').val()==''||$('#comments').val()==''){
+        alert('Please complete the form.');
+    	return false;
+    }else if(select2 == null){
+    	alert('Please choose where you heard it.');
+    	return false;
+    } else{
+    	return true;
+    }
+    })
+ 
+
+ </script>
+ </body>
+</html>

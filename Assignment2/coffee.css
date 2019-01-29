@@ -1,0 +1,171 @@
+#wrapper { 
+    width: 70%;
+	background-color: #fff0e6; 
+	margin-top: 0;
+	margin: auto;
+	box-shadow: 10px 10px 5px #2E0000;
+ }
+
+ body { font-family:Arial, sans-serif;
+       background-color: #F5F5DC;
+	   margin: 0;
+}
+h1{
+	font-family: Reey,Verdana, Arial;
+	color: #575151;
+	font-size:30px;
+	text-align: center;
+}
+header{
+	background-color: #f09027;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+nav{
+    background-color: #E6D6A9;
+    text-align: center;
+    position: relative;
+    margin-bottom: 0px;
+}
+nav ul { margin: 0;
+        list-style-type: none;
+}
+nav li { padding: 0.5em;
+         display: inline-block;
+         padding-left: 20px;
+	     padding-right: 20px;
+}
+nav a { text-decoration: none; 
+       display: block;
+       font-size: 30px;
+       color: #f5f5dc;
+}
+nav a:link { color: #FFFFFF; }
+nav a:visited { color: #EAEAEA; }
+nav a:hover {  color: #D3DBEB; }
+
+nav ul ul { position: absolute;
+         background-color: #E6D6A9;
+    	 padding: 0;
+         display: none; 
+		 text-align: center;
+}
+nav ul ul li { border: 1px solid  #f5f5dc;
+ 		 display: block;
+         width: 10em;
+         padding-left: 1em;
+         margin-left: 0; 
+}
+
+nav li:hover ul { 
+	display: block; 
+}
+
+
+main{
+	height: 500px;
+	background-image: url(images/fall1.jpg);
+	backface-visibility: 0.5;
+	background-repeat: no-repeat;	
+}
+h2{
+	margin-top: 0px;
+	color: #ffffff;
+	font-size: 35px;
+	padding-top: 45px;
+	padding-left: 55px;
+	font-family: Helvetica,sans-serif;
+}
+
+main ul li{
+    color: #FFFFFF;
+	font-size: 25px;
+	padding-left: 55px;
+	list-style-type: none;
+	padding-top: 10px;
+	font-family: sans-serif;
+}
+
+footer{
+	text-align: center;
+	font-size:70;
+	font-family: "Time New Roma";
+	font-style: italic;
+	padding: 9px;
+	background-color: #363434;
+	margin-top: 0px;
+}
+footer a{
+	text-decoration: none;
+	color: #d5eeff;
+}
+
+@media only screen and (max-width: 1005px){
+    nav li { display: block; font-size: 15px; padding: 0.3em; }	
+}
+
+@media only screen and (max-width: 768px) {
+	body { margin: 0; }
+	#wrapper { width: auto; }                                                              
+	main { margin-left: 0; background: none;}
+	nav { float: none;  width: auto; padding-top:  }
+	nav li { display: block;  font-size: 15px; padding:0.3em; }
+	nav ul { text-align: center;}
+	nav a { border-style: none; }
+	h1, h2 { font-size: 120%; color:#414141; padding-left:0px; text-align: center; }
+	main {height: 300px;}
+	main ul li{color:#414141; font-size: 0.9em; padding-left:0px; text-align: center; }
+
+} 
+
+
+@media only screen and (max-width: 365px) {
+	h1, h2 { font-size: 100%; text-align: center;}
+	main ul li{text-align: center; }
+ 	nav, nav ul, nav li { padding: 0; }
+ 	nav li { display: block; }
+    nav a { display: block; border-bottom: 2px ridge #00005D; }
+}
+
+
+table{
+	background: #f1ffab;
+	opacity: 0.9;
+	position: center;
+	padding: 20px;
+}
+table td{
+	width: 400px;
+}
+legend{
+	color: #ffffff;
+	padding:3px;
+}
+form
+{
+	width: 70%;
+	margin: 0 auto;
+}
+fieldset{
+	height: 450px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

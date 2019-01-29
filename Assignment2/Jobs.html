@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>JavaJam Coffee House</title>
+	<link href="coffee.css" rel="stylesheet">
+</head>
+<body>
+	<div id="wrapper"> 
+	<header>
+		<h1>JavaJam Coffee House</h1>
+	</header>
+	<nav>
+		<ul>
+			<li><a href="Home.html">Home</a>
+                <ul>
+                	<li><a href="HotBrews.html">Hot Brews</a></li>
+                	<li><a href="ColdBrews.html">Cold Brews</a></li>
+                </ul>
+			</li>
+			<li><a href="Menu.html">Menu</a></li>
+			<li><a href="Jobs.html">Jobs</a></li>
+			<li><a href="Gallrey.html">Gallrey</a></li>
+			<li><a href="Feedback.html">Feedback</a></li>
+		</ul>
+	</nav>
+	<main>
+		<fieldset>
+        <legend>CONTACT US</legend>	
+        <form method="get" >
+		<table >
+		<tr>
+	       <td><label for="Name">Name:</label></td>
+           <td><input type="text" name="Name" id="Name"></td>
+           <td><label for="Email">E-mail:</label></td>
+	       <td><input type="email" name="Email" id="Email" required></td>
+	    </tr>
+	    <tr>
+           <td><label for="Pass">Password:</label></td>
+           <td><input type="password" name="Pass" id="Pass" required></td>     
+           <td><label for="SSN">SSN:</label></td>
+           <td><input type="SSN" name="SSN" id="SSN" required></td>
+        </tr>
+        <tr>
+	       <td><input type="radio" name="gender" value="male" checked>Male</td>
+           <td><input type="radio" name="gender" value="female"> Female</td> 
+        </tr>
+        <tr>
+           <td colspan="4">What is your favorite position?</td>
+        </tr>
+        <tr>
+    	   <td><input type="checkbox" name="prefer" value="barista" >barista</td>
+           <td><input type="checkbox" name="prefer" value="baker">baker</td>
+           <td><input type="checkbox" name="prefer" value="waiter" >waiter</td>
+           <td><input type="checkbox" name="prefer" value="cashier">cashier</td>
+        </tr>
+        <tr>
+           <td><label for="Experience">Experience:</label></td>
+           <td colspan="3"><textarea name="Experience" id="Experience" rows="5" cols="100"></textarea></td>  
+        </tr>
+        <tr>
+        	<td><label for="Expected">Expected Salary:</label></td>
+        	<td colspan="3">$3000<input type="range" name="Expected">$5000</td>
+        </tr>
+        <tr>
+	    <td colspan="4"><input id="Submit" type="submit" value="Submit"></td>
+        </tr>
+		</table>
+		</fieldset>
+	</main>
+	<footer>
+		<a>Copyright &copy; JavaJam Coffee House</a><br>
+		<a href="mailto:yanhongmain@gmail.com">yanhongmain@gmail.com</a>
+	</footer>
+	<div> 
+</body>
+</html>

@@ -1,0 +1,36 @@
+.SUVContent{
+	height:713px;
+	background: linear-gradient(to right, rgba(0,0,0,0.5), rgba(0,0,0,0.5)),url(images/model-SUV-background.jpg);
+	background-size:100% 100%;
+	
+}
+.sedanContent{
+    height:713px;
+	background: linear-gradient(to right, rgba(0,0,0,0.5), rgba(0,0,0,0.5)),url(images/model-Sedan-background.jpg);
+	background-size:100% 100%;
+}
+
+.sportscar{
+	height:713px;
+	background: linear-gradient(to right, rgba(0,0,0,0.5), rgba(0,0,0,0.5)),url(images/model-SportsCars-background.jpg);
+	background-size:100% 100%;
+}
+
+.embed-responsive{
+	width:400px; 
+	height:400px;
+}
+
+.nav-item a{
+    color: gray;
+}
+.card-deck{
+	padding:50px;
+}
+.model{
+	float: left;
+}
+.seeMore{
+	float: right;
+	padding: 10px;
+}

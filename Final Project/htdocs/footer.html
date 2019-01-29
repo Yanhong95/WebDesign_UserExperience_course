@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>car</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link href="https://getbootstrap.com/docs/4.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/menu.css">
+        <script>
+            $(document).ready(function(){
+
+              var back = $('.back-to-top');
+                back.on('click',function(){
+                  console.log('backback')
+                  $('html, body').animate({
+                    scrollTop:0 },800)
+                })
+
+                $(window).on('scroll',function(){
+                  if ($(window).scrollTop()> $(window).height())
+                    back.fadeIn();
+                  else
+                    back.fadeOut();
+                })
+                $(window).trigger('scroll');
+          })
+        </script>
+  </head>
+
+   <footer> 
+      <ul class="share-group col-12 col-sm-12 col-md-12">
+        <li><a href="https://www.facebook.com/" class="fab fa-facebook fa-2x"></a></li>
+        <li><a href="https://www.twitter.com/" class="fab fa-twitter fa-2x"></a></li>
+        <li><a href="https://www.instagram.com/" class="fab fa-instagram fa-2x"></a></li>
+        <li><a href="https://www.wechat.com/" class="fab fa-weixin fa-2x"></a></li>
+      </ul>
+      <bottom class="back-to-top" style="position: fixed; bottom: 30px; right: 30px;border-radius:5px;"><i class="fas fa-angle-double-up 3x"></i></bottom>
+       <div class="copy">
+       Copyright &copy; 2018<br>
+       <a href="mailto:@husky.neu.edu">@husky.neu.edu</a>
+     </div>
+    </footer>
+
+</html>
